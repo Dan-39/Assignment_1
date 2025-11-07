@@ -15,8 +15,8 @@ st.set_page_config(
 
 @st.cache_data
 def load_data():
-    accidents = pd.read_csv(r'C:\Users\HP\Downloads\archive\Accidents.csv')
-    bikers = pd.read_csv(r'C:\Users\HP\Downloads\archive\Bikers.csv')
+    accidents = pd.read_csv('Accidents.csv')
+    bikers = pd.read_csv('Bikers.csv')
     
     df = pd.merge(accidents, bikers, on='Accident_Index', how='inner')
     
@@ -236,6 +236,7 @@ with tab2:
         )
         fig_heat.update_layout(height=500)
         st.plotly_chart(fig_heat, use_container_width=True)
+
 with tab3:
     col1, col2, col3 = st.columns(3)
     
@@ -304,6 +305,7 @@ with tab3:
     
     fig_day_analysis.update_layout(height=400, showlegend=False)
     st.plotly_chart(fig_day_analysis, use_container_width=True)
+
 with tab4:
     col1, col2 = st.columns(2)
     
